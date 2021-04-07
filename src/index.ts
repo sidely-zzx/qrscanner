@@ -1,6 +1,4 @@
-import scannerElement from './scannerElement';
+import createElement from './createElement';
 
 
-export {
-  scannerElement
-}
+export default { createElement }

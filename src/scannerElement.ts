@@ -3,7 +3,6 @@ const body: HTMLElement = document.body;
 class scannerElement extends HTMLElement {
   constructor() {
     super();
-    console.log(this)
     this.attachShadow({ mode: "open" });
 
     this.shadowRoot!.innerHTML = `
@@ -23,21 +22,19 @@ class scannerElement extends HTMLElement {
         transform: translate(-50%, -50%);
         background-color: #FFF;
       }
+      .video{
+        width: 100%;
+        height: 100%;
+      }
       </style>
       <div class="outer">
-      <div class="inner">123123</div>
+        <div class="inner">
+          <video class="video"></video>
+        </div>
       </div>
       `;
   }
 }
 
-customElements.define("scanner-element", scannerElement);
+export default scannerElement
 
-// const scanner = document.createElement('div');
-const scanner = document.createElement("scanner-element");
-
-// scanner.setAttribute("is", "scanner-element");
-// const scannerShadow: ShadowRoot = console.log(scanner);
-console.log(scanner)
-body.appendChild(scanner);
-export default scanner
