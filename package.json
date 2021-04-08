@@ -5,7 +5,8 @@
   "main": "index.js",
   "typings": "types/index.d.ts",
   "scripts": {
-    "build": "npx rollup -c"
+    "build": "npx rollup -c",
+    "test": "npx rollup -c -w"
   },
   "author": "sidely-zzx",
   "license": "MIT",
