@@ -4,7 +4,7 @@ import resolve from 'rollup-plugin-node-resolve'
 export default {
   input: 'src/index.ts',
   output: {
-    file: 'dist/qrscanner.js',
+    file: 'qrscanner.mini.js',
     format: 'esm',
     name: 'qrscanner'
   },

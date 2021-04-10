@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="qrscanner qrcode qr reader qrcode reader ">
+  <meta name="description" content="qrscanner example">
+  <title>qrscanner</title>
+  <style>
+  </style>
+<script type="module" crossorigin src="/assets/index.f1b5f498.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.ffdbab8f.js">
+</head>
+<body>
+    <div style="position: relative;height: 80vh;width: 50vw;min-width: 375px;min-height: 700px; margin: 30px auto;">
+      <qr-scanner style="width: 100%;height: 50%;position: relative;" >
+        <div style="position: absolute;top: 0;left: 20%;color: #fff;">this is a slot text,and this is create by web component</div>
+      </qr-scanner>
+      <div >
+        <p>the start button is to open camera , and stop is close camera</p>
+        <button id="start">start</button>
+        <button id="stop">stop</button>
+        <div>
+          <p>use function create simaple full screen QR code reader, before show you shuld click create qr-scanner</p>
+          <button id="f-create">create</button>
+          <button id="f-show">show</button>
+          <button id="f-hidden">hidden</button>
+        </div>
+        <div style="margin-top: 20px;">
+          <a href="https://github.com/sidely-zzx/qrscanner" title="qrscanner github">check the plugin on github</a>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

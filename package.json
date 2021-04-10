@@ -2,7 +2,7 @@
   "name": "qrscannerr",
   "version": "0.1.1",
   "description": "A qr scanner, qrcode reader, qr reader, made by web component",
-  "main": "index.js",
+  "main": "qrscanner.mini.js",
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "npx rollup -c",
