@@ -1,3 +1,0 @@
-import '../dist/qrscanner';
-
-

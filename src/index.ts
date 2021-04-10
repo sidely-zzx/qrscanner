@@ -1,4 +1,4 @@
 import createElement from './createElement';
 
 
-export default { createElement }
+export default createElement

@@ -1,11 +1,6 @@
 import typescript from 'rollup-plugin-typescript';
 import { terser } from "rollup-plugin-terser";
-// const banner = `/*!
-//  * qrscanner v${pkg.version}
-//  * (c) ${new Date().getFullYear()} sidely-zzx
-//  * @license MIT
-//  */`
-
+import resolve from 'rollup-plugin-node-resolve'
 export default {
   input: 'src/index.ts',
   output: {
@@ -15,6 +10,7 @@ export default {
   },
   plugins:[
     typescript({target: "es2020"}),
+    resolve(),
     terser()
   ]
 }

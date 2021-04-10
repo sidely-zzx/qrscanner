@@ -1,26 +1,30 @@
 {
   "name": "qrscannerr",
-  "version": "0.1.0",
-  "description": "qr scanner web component",
+  "version": "0.1.1",
+  "description": "A qr scanner, qrcode reader, qr reader, made by web component",
   "main": "index.js",
   "typings": "types/index.d.ts",
   "scripts": {
     "build": "npx rollup -c",
-    "test": "npx rollup -c -w"
+    "dev-example": "npx vite",
+    "build-example": "npx vite build"
   },
   "author": "sidely-zzx",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vuex.git"
+    "url": "git+https://github.com/sidely-zzx/qrscanner"
   },
   "dependencies": {
+    "@zxing/browser": "^0.0.8",
     "rollup": "^2.44.0"
   },
   "devDependencies": {
+    "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-typescript": "^1.0.1",
     "tslib": "^2.2.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.3",
+    "vite": "^2.1.5"
   }
 }
