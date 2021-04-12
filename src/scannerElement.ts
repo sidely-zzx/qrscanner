@@ -88,8 +88,8 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
     const scanEvent = document.createEvent('CustomEvent');
     const mediaDevices: MediaDevices = navigator.mediaDevices;
     const onError = (err):void => {
-      scanEvent.initCustomEvent('qrscan', true, true, {error:err});
-      dispatchEvent(scanEvent);
+      scanEvent.initCustomEvent('qrscan', true, true, {error: err});
+      this.dispatchEvent(scanEvent);
     }
     if (mediaDevices) {
       /* user: font camera, environment back camera */
