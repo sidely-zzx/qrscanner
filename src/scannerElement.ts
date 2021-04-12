@@ -1,5 +1,5 @@
 import { BrowserQRCodeReader }  from '@zxing/browser';
-import { ScannerElementInerface } from '../types/index'
+import { ScannerElementInerface, qrScanEvent } from '../types/index'
 const body: HTMLElement = document.body;
 class scannerElement extends HTMLElement implements ScannerElementInerface{
   closeBtn: HTMLElement;
@@ -117,7 +117,7 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
       }, 0);
     } 
   }
-  stop (e?: Event):void {
+  stop (e?: qrScanEvent):void {
     const scanEvent = document.createEvent('CustomEvent');
     this.mediaStream && this.mediaStream.getTracks()[0].stop();
     scanEvent.initCustomEvent('stop', true, true, e);

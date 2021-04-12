@@ -1,18 +1,23 @@
+interface detail {
+  text?: string,
+  error?: {
+    message: string
+  }
+}
+export type qrScanEvent = {
+  detail: detail
+}
 export class ScannerElementInerface extends HTMLElement{
   constructor();
   scannerStart(): void;
-  stop(e?: Event):void;
+  stop(e?: qrScanEvent):void;
 }
-type callback = (e: any) => any;
-
-interface OptionsInterface {
-  style: string;
-}
+export type callback = (e: detail) => any;
 export  class ScannerInerface {
   scanner: ScannerElementInerface;
   callback: callback;
-  constructor(callback: callback, options: OptionsInterface);
-  start(): void;
+  constructor(callback: callback);
   hidden(): void;
   stop(): void;
 }
+export default ScannerInerface;

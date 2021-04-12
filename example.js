@@ -1,12 +1,13 @@
-import CreateElement from  './src/index';
+import CreateQRScanner from  './src/index';
 const scanner = document.querySelector('qr-scanner');
 customElements.whenDefined('qr-scanner')
   .then(() => scanner.scannerStart());
 scanner.addEventListener('qrscan',e => {
-  console.log('qrscan', e);scanner.close()
+  const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error;
+  alert(str);
 }, false)
 scanner.addEventListener('close', e => {
-  console.log(e);document.body.remove(scanner)
+  document.body.remove(scanner)
 }, false)
 const startBtn = document.querySelector('#start');
 const stopBtn = document.querySelector('#stop');
@@ -30,7 +31,7 @@ const create = document.querySelector('#f-create'),
       hidden = document.querySelector('#f-hidden');
 let functionScanner;
 create.onclick = () => {
-  functionScanner = new CreateElement(fn);
+  functionScanner = new CreateQRScanner(fn);
 }
 
 show.onclick = () => {
