@@ -59,7 +59,7 @@ const scanner = document.querySelector('qr-scanner');
 customElements.whenDefined('qr-scanner')
   .then(() => void scanner.scannerStart());
 scanner.addEventListener('qrscan',e => {
-  const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error;
+  const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error.messsage;
   alert(str);
 }, false)
 ```
@@ -67,8 +67,8 @@ scanner.addEventListener('qrscan',e => {
 ***
 ### 事件
 组件上的事件,您可以像监听click事件一样监听这些事件：
-qrsacn: 成功扫描并解析成一个字符串时间detail里面有text属性，或者捕获到错误里面事件属性中有error，error.message中有错误的描述；
-stop: 点击了左上角的x按钮，并且会关闭摄像头停止扫描二维码
+1. qrsacn: 成功扫描并解析成一个字符串时间detail里面有text属性，或者捕获到错误里面事件属性中有error,error.message中有错误的描述；
+2. stop: 点击了左上角的x按钮，并且会关闭摄像头停止扫描二维码
 ### 属性
 style: 创建的时候传入style属性可以设置最组件整体的大小和布局，默认布局为fixed，宽度为100vw,高度为100vh。
 ### 方法
