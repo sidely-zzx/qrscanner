@@ -117,7 +117,7 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
       }, 0);
     } 
   }
-  stop (e?: qrScanEvent):void {
+  stop (e?: Event):void {
     const scanEvent = document.createEvent('CustomEvent');
     this.mediaStream && this.mediaStream.getTracks()[0].stop();
     scanEvent.initCustomEvent('stop', true, true, e);

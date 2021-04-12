@@ -10,7 +10,7 @@ export type qrScanEvent = {
 export class ScannerElementInerface extends HTMLElement{
   constructor();
   scannerStart(): void;
-  stop(e?: qrScanEvent):void;
+  stop(e?: Event):void;
 }
 export type callback = (e: detail) => any;
 export  class ScannerInerface {
