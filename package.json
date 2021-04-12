@@ -1,7 +1,8 @@
 {
   "name": "component-qrscanner",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A qr scanner, qrcode reader, qr reader, made by web component",
+  "keywords": ["scanner", "qrcode", "qrcode reader", "qrcode sacnner"],
   "main": "qrscanner.mini.js",
   "typings": "types/index.d.ts",
   "scripts": {
