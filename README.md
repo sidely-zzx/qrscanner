@@ -12,7 +12,7 @@ npm install component-qrscanner --save-dev
 #### 使用构造函数创建简单的二维码扫描器，这个不能灵活的修改样式和添加属性和方法。但是写法简单，对于简单需求可以使用构造函数创建qrscanner，会自动创建一个全屏的二维码扫描组件。
 
 ```
-import CreateQRScanner from  'qrscanner';
+import CreateQRScanner from  'component-qrscanner';
 const fn = function (e) {
   if (e.text){
     alert('text:' + e.text)
@@ -53,7 +53,7 @@ html
 ```
 ```
 qrsanner.js
-import  'qrscanner';
+import  'component-qrscanner';
 const scanner = document.querySelector('qr-scanner');
 //  可能组件还没有创建完毕所以用whenDefined
 customElements.whenDefined('qr-scanner')
