@@ -1,12 +1,12 @@
 # qrscanner
 qrsacnner是一个用web commponent写的二维码扫面组件，可以在原生，vue，react，svelte等框架上面使用的二维码识别扫描组件。
-本组件使用mediaDevices.getUserMedia API获取摄像头，所以只能在https网站上运行，无法在http网站上运行，优先使用后置摄像头，如果需要在本地调试可以在http://loacalhost或者http://127.0.0.1上调试。二维码解码代码较大（300k），建议使用模块分包加载的方式构建您的程序。
+本组件使用mediaDevices.getUserMedia API获取摄像头，所以只能在https网站上运行，无法在http网站上运行，优先使用后置摄像头，如果需要在本地调试可以在loacalhost或者127.0.0.1上调试。二维码解码代码较大（300k），建议使用模块分包加载的方式构建您的程序。
 ***
 demo: https://sidely-zzx.github.io/qrscanner-example/
 ***
 首先需要安装
 ```
-npm install component-qrscanner --save-dev
+npm i component-qrscanner
 ```
 ## 使用函数创建qrscanner
 #### 使用构造函数创建简单的二维码扫描器，这个不能灵活的修改样式和添加属性和方法。但是写法简单，对于简单需求可以使用构造函数创建qrscanner，会自动创建一个全屏的二维码扫描组件。
@@ -17,13 +17,13 @@ const fn = function (e) {
   if (e.text){
     alert('text:' + e.text)
   } else {
-    alert('error:' + e.error.message)
+    alert('error:' + e.error)
   }
 }
 //  创建后自动开启摄像头
 cosnt scanner = new CreateQRScanner(fn);
 ```
-构造函数CreateQRScanner接受一个回调函数作为参数，这个回调函数有一个参数。如果解码成功该参数上有一个属性text，如果解码失败则会带一个属性error，error上会带一个message显示错误的信息。
+构造函数CreateQRScanner接受一个回调函数作为参数，这个回调函数有一个参数。如果解码成功该参数上有一个属性text，如果解码失败则会带一个属性error里面包含错误信息
 ***
 对象上的一些方法
 ```
@@ -89,21 +89,58 @@ qrscanner预留有一个默认的slot，可以插入自定义元素
 ```
 ***
 ### vue中的使用
-在vue中使用web component 组件qrscanner
+在vue中使用web component 组件qrscanner,完整示例
 ```
+//  in app.js
 import { createApp } from 'vue'
 import App from './App.vue'
 const app = createApp(App);
 app.config.isCustomElement = tag => tag === 'qr-scanner';
+
+//  in Scanner.vue
+<template>
+  <qr-scanner 
+    ref="scanner"
+    style="position:relative;"
+    @qrscan="onScan"
+    @stop="onClose"
+  />
+</template>
+<script>
+import { onMounted, ref } from 'vue';
+import 'component-qrscanner';
+export default {
+  name:'Scanner',
+  setup() {
+    const scanner = ref(null)
+    const onClose = e => {
+      console.log('close', e)
+    }
+    const onScan = (e) => {
+      const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error;
+      alert(str);
+    }
+    onMounted(() => {
+      scanner.value.shadowRoot.querySelector('.outer').style.cssText = 'top: 46px;';
+      scanner.value.scannerStart();
+    })
+    return {
+      onScan,
+      onClose,  
+      scanner
+    }
+  }
+}
+</script>
 ```
 ***
 ### 在 React 中使用 
 ```
 import 'react';
-function BrickFlipbox() {
+import 'component-qrscanner';
+function Scanner() {
   return (
     <qr-scanner>
-     <div>this is a slot text</div>
     </qr-scanner>
   );
 }

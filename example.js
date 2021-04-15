@@ -3,7 +3,7 @@ const scanner = document.querySelector('qr-scanner');
 customElements.whenDefined('qr-scanner')
   .then(() => scanner.scannerStart());
 scanner.addEventListener('qrscan',e => {
-  const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error.message;
+  const str = e.detail.text ? 'text is :' + e.detail.text : 'error:' + e.detail.error;
   alert(str);
 }, false)
 scanner.addEventListener('close', e => {

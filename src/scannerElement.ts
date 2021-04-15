@@ -29,12 +29,12 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
       .line{
         position: absolute;
         width: 80%;
-        height: 10px;
+        height: 5px;
         left: 50%;
         top: 30%;
         transform: translate(-50%, -50%);
-        box-shadow: 0 5px 5px 8px rgba(31, 255, 98, 0.753);
-        clip-path: ellipse( 40% 10px at 50% 0px);
+        background-image: linear-gradient(to top, rgba(31, 255, 98, 0.753), transparent);
+        clip-path: ellipse( 40% 10px at 50% 5px);
         animation: scanner 2s ease-in-out infinite alternate;
       }      
       .video{
@@ -88,6 +88,7 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
     const scanEvent = document.createEvent('CustomEvent');
     const mediaDevices: MediaDevices = navigator.mediaDevices;
     const onError = (err):void => {
+      console.error(err);
       scanEvent.initCustomEvent('qrscan', true, true, {error: err});
       this.dispatchEvent(scanEvent);
     }
@@ -112,7 +113,7 @@ class scannerElement extends HTMLElement implements ScannerElementInerface{
     } else {
       /* setTimeout: maybe addEventListener is not run */
       setTimeout(() => {
-        scanEvent.initCustomEvent('qrscan', true, true, {error: {message: 'no mediaDevices, only work on https'}});
+        scanEvent.initCustomEvent('qrscan', true, true, {error: 'no mediaDevices, only work on https'});
         this.dispatchEvent(scanEvent);
       }, 0);
     } 
